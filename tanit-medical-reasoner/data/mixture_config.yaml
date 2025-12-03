@@ -1,0 +1,79 @@
+mixture_name: "tanit_medical_reasoning_mix_v1"
+
+target_size: 40000      
+shuffle: true
+seed: 42
+
+datasets:
+  - name: "UCSC-VLAA/MedReason"
+    alias: "medreason"
+    load_split: "train"
+    weight: 0.35        
+    max_samples: 15000
+
+  - name: "FreedomIntelligence/medical-o1-reasoning-SFT"
+    config: "en"
+    alias: "medical_o1"
+    load_split: "train"
+    weight: 0.35         
+    max_samples: 15000
+
+  - name: "GBaker/MedQA-USMLE-4-options"
+    alias: "medqa_robust"
+    load_split: "train"
+    weight: 0.08
+    max_samples: 3200
+
+
+  - name: "medmcqa"
+    alias: "medmcqa"
+    load_split: "train"
+    weight: 0.08         
+    max_samples: 3200
+
+  - name: "AI-MO/NuminaMath-CoT"  
+    alias: "math_cot_subset"
+    load_split: "train"
+    weight: 0.05                    
+    filter:
+      include_keywords: ["math", "calculation", "quantitative", "arithmetic"]
+    max_samples: 2000
+
+  - name: "qiaojin/PubMedQA"
+    config: "pqa_labeled"
+    alias: "pubmedqa"
+    load_split: "train"
+    weight: 0.04         
+    max_samples: 1600
+
+  - name: "FreedomIntelligence/HuatuoGPT-sft-data-v1"
+    alias: "huatuo_sft"
+    load_split: "train"
+    weight: 0.03         
+    max_samples: 1200
+
+  - name: "HuggingFaceH4/ultrafeedback_binarized"
+    alias: "ultrafeedback_medical"
+    load_split: "train_prefs"
+    weight: 0.02         
+    filter:
+      include_keywords: ["medical", "clinical", "health", "medicine"]
+    max_samples: 500
+
+formatting:
+  type: "o1_style"  
+  fields:
+    input_field: "question"
+    output_field: "answer"
+  # <thinking> ... </thinking>
+  add_thinking_tags: true        
+
+deduplication:
+  enabled: true
+  method: "hash"                 
+  fields_to_hash: ["question"]
+
+output:
+  dataset_path: "data/processed/final_mix"
+  # HF dataset arrow format
+  save_as: "arrow"               
