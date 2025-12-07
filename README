@@ -1,18 +1,17 @@
-````markdown
 # Fertility Medical Reasoner
 
-This repository provides a small, fine-tuned medical reasoning model for fertility clinics.  
-All code and demos are available in `notebook/demo.ipynb`.
+This repository provides a lightweight fine-tuned medical reasoning model specialized for fertility and reproductive-medicine cases.  
+All demos are available in `notebook/demo.ipynb`.
 
 ## 1. Requirements
 
-Install the necessary dependencies before running any scripts:
+Install dependencies:
 
 ```bash
 pip install torch transformers datasets peft trl unsloth huggingface_hub tqdm jupyterlab
 ```
 
-Login to Hugging Face to access the base models:
+Login to Hugging Face if your base model requires authentication:
 
 ```python
 from huggingface_hub import notebook_login
@@ -21,59 +20,82 @@ notebook_login()
 
 ## 2. Data Preparation
 
-The script `train/00_prepare_mixture.py` handles:
+`train/00_prepare_mixture.py` is responsible for:
 
-Cleaning and preprocessing raw datasets  
-Combining multiple data sources into a curated mixture  
-Formatting datasets for chain-of-thought (CoT) supervised fine-tuning  
+- Cleaning and preprocessing raw datasets
+- Combining multiple sources into a unified training mixture
+- Formatting examples for chain-of-thought supervised fine-tuning
 
-Run this script first to generate `data/processed/final_mix/`.
+Running this script will generate:
+
+```
+data/processed/final_mix/
+```
 
 ## 3. Model Fine-Tuning
 
-The script `train/qlora_sft.py` performs QLoRA-based supervised fine-tuning:
+`train/qlora_sft.py` performs QLoRA-based supervised fine-tuning.
 
-Uses `SmolLM3-3B-Base` as the base model  
-Applies LoRA adapters for parameter-efficient tuning  
-Supports long-context reasoning (up to 32k tokens)  
-Saves the fine-tuned model to `models/sft_smollm3/`
+Key details:
+
+- Base model: `SmolLM3-3B-Base`
+- LoRA adapters for efficient training
+- Long-context support (up to 32k tokens)
+- Final model saved under:
+
+```
+models/sft_smollm3/
+```
 
 ## 4. Evaluation
 
-The repository provides two evaluation scripts:
+Two evaluation scripts are provided:
 
-`evaluation/run_all_benchmarks.py`  
-Evaluates the fine-tuned model on curated medical reasoning datasets (MedQA, MedMCQA, PubMedQA, MMLU-Clinical).
+### `evaluation/run_all_benchmarks.py`
+Evaluates the **fine-tuned model** on medical-reasoning benchmarks:
 
-`evaluation/run_batch_eval_base_model.py`  
-Evaluates the base model for comparison on the same datasets.
+- MedQA
+- MedMCQA
+- PubMedQA
+- MMLU Clinical subsets
 
-Both scripts report per-dataset accuracy, overall performance, and compare differences between yes/no reasoning and multiple-choice grounding.
+### `evaluation/run_batch_eval_base_model.py`
+Evaluates the **base model** on the same datasets for comparison.
+
+Both scripts report:
+
+- Accuracy per dataset
+- Overall aggregated score
+- Differences between yes/no reasoning and multiple-choice grounding
 
 ## 5. Inference and Use Cases
 
-Use `inference/stream_medical_cot.py` for interactive testing:
+Use:
 
-Load the fine-tuned model  
-Provide new patient cases or PDF summaries  
-Observe chain-of-thought reasoning traces and recommended clinical actions  
+```
+inference/stream_medical_cot.py
+```
 
-This script is ideal for running curated fertility cases or testing new patient data.
+This script supports:
+
+- Loading the fine-tuned model
+- Passing new patient cases (JSON or text)
+- Viewing chain-of-thought reasoning traces
+- Getting recommended clinical actions
+
+Useful for testing custom fertility cases or PDF-extracted patient summaries.
 
 ## 6. Demo
 
-A working demo is provided in `notebook/demo.ipynb`, which includes:
+A complete end-to-end demo is available in:
 
-Loading the fine-tuned model  
-Running evaluation benchmarks  
-Testing inference on sample fertility cases with CoT reasoning
-````
+```
+notebook/demo.ipynb
+```
 
-If you want, I can convert this into:
+It shows:
 
-A polished PDF-ready LaTeX document
-A GitHub-friendly professional README style
-A long, detailed documentation page
-A one-page project summary
-
-Tell me which one you prefer.
+- Loading the fine-tuned model
+- Running benchmark evaluations
+- Testing inference on sample fertility cases
+- Visualizing chain-of-thought reasoning
