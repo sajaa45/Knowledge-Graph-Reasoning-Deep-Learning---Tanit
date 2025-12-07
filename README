@@ -1,4 +1,3 @@
-
 ````markdown
 # Fertility Medical Reasoner
 
@@ -11,7 +10,7 @@ Install the necessary dependencies before running any scripts:
 
 ```bash
 pip install torch transformers datasets peft trl unsloth huggingface_hub tqdm jupyterlab
-````
+```
 
 Login to Hugging Face to access the base models:
 
@@ -24,9 +23,9 @@ notebook_login()
 
 The script `train/00_prepare_mixture.py` handles:
 
-* Cleaning and preprocessing raw datasets
-* Combining multiple data sources into a curated mixture
-* Formatting datasets for chain-of-thought (CoT) supervised fine-tuning
+Cleaning and preprocessing raw datasets  
+Combining multiple data sources into a curated mixture  
+Formatting datasets for chain-of-thought (CoT) supervised fine-tuning  
 
 Run this script first to generate `data/processed/final_mix/`.
 
@@ -34,30 +33,30 @@ Run this script first to generate `data/processed/final_mix/`.
 
 The script `train/qlora_sft.py` performs QLoRA-based supervised fine-tuning:
 
-* Uses `SmolLM3-3B-Base` as the base model
-* Applies LoRA adapters for parameter-efficient tuning
-* Supports long-context reasoning (up to 32k tokens)
-* Saves the fine-tuned model to `models/sft_smollm3/`
+Uses `SmolLM3-3B-Base` as the base model  
+Applies LoRA adapters for parameter-efficient tuning  
+Supports long-context reasoning (up to 32k tokens)  
+Saves the fine-tuned model to `models/sft_smollm3/`
 
 ## 4. Evaluation
 
 The repository provides two evaluation scripts:
 
-* `evaluation/run_all_benchmarks.py`
-  Evaluates the **fine-tuned model** on curated medical reasoning datasets (MedQA, MedMCQA, PubMedQA, MMLU-Clinical).
+`evaluation/run_all_benchmarks.py`  
+Evaluates the fine-tuned model on curated medical reasoning datasets (MedQA, MedMCQA, PubMedQA, MMLU-Clinical).
 
-* `evaluation/run_batch_eval_base_model.py`
-  Evaluates the **base model** for comparison on the same datasets.
+`evaluation/run_batch_eval_base_model.py`  
+Evaluates the base model for comparison on the same datasets.
 
-Both scripts report per-dataset accuracy, overall performance, and highlight differences between yes/no reasoning and multiple-choice grounding.
+Both scripts report per-dataset accuracy, overall performance, and compare differences between yes/no reasoning and multiple-choice grounding.
 
 ## 5. Inference and Use Cases
 
 Use `inference/stream_medical_cot.py` for interactive testing:
 
-* Load the fine-tuned model
-* Provide new patient cases or PDF summaries
-* Observe chain-of-thought reasoning traces and recommended clinical actions
+Load the fine-tuned model  
+Provide new patient cases or PDF summaries  
+Observe chain-of-thought reasoning traces and recommended clinical actions  
 
 This script is ideal for running curated fertility cases or testing new patient data.
 
@@ -65,11 +64,16 @@ This script is ideal for running curated fertility cases or testing new patient 
 
 A working demo is provided in `notebook/demo.ipynb`, which includes:
 
-* Loading the fine-tuned model
-* Running evaluation benchmarks
-* Testing inference on sample fertility cases with CoT reasoning
+Loading the fine-tuned model  
+Running evaluation benchmarks  
+Testing inference on sample fertility cases with CoT reasoning
+````
 
-```
+If you want, I can convert this into:
 
-If you want, I can also make a **nicely formatted PDF-ready LaTeX version** of this README with sections, bullet points, and highlighted code blocks. Do you want me to do that?
-```
+A polished PDF-ready LaTeX document
+A GitHub-friendly professional README style
+A long, detailed documentation page
+A one-page project summary
+
+Tell me which one you prefer.
