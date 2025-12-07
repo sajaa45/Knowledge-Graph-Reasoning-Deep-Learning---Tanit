@@ -1,2 +1,5 @@
-data\processed
-models\sft_smollm3
+data/processed
+unsloth_compiled_cache
+models
+*/.ipynb_checkpoints
+.ipynb_checkpoints
