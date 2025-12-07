@@ -1,4 +1,4 @@
-````markdown
+```markdown
 # Fertility Medical Reasoner
 
 This repository provides a lightweight fine-tuned medical reasoning model specialized for fertility and reproductive-medicine cases.  
@@ -100,4 +100,4 @@ It shows:
 - Running benchmark evaluations
 - Testing inference on sample fertility cases
 - Visualizing chain-of-thought reasoning
-````
+```
