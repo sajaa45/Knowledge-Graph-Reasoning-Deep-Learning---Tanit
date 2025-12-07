@@ -1,5 +1,4 @@
 # Fertility Medical Reasoner
-
 This repository provides a lightweight fine-tuned medical reasoning model specialized for fertility and reproductive-medicine cases.  
 All demos are available in `notebook/demo.ipynb`.
 
@@ -28,7 +27,7 @@ notebook_login()
 
 Running this script will generate:
 
-```
+```bash
 data/processed/final_mix/
 ```
 
@@ -43,7 +42,7 @@ Key details:
 - Long-context support (up to 32k tokens)
 - Final model saved under:
 
-```
+```bash
 models/sft_smollm3/
 ```
 
@@ -72,7 +71,7 @@ Both scripts report:
 
 Use:
 
-```
+```bash
 inference/stream_medical_cot.py
 ```
 
@@ -89,7 +88,7 @@ Useful for testing custom fertility cases or PDF-extracted patient summaries.
 
 A complete end-to-end demo is available in:
 
-```
+```bash
 notebook/demo.ipynb
 ```
 
