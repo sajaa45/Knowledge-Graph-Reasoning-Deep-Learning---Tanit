@@ -1,0 +1,9 @@
+{
+  "case_id": 1,
+  "title": "Recurrent Implantation Failure",
+  "case": "34F, 3 failed IVF cycles with 4AA blastocysts. AMH 2.8 ng/mL, FSH 6.2 mIU/mL. Partner SA normal. Hysteroscopy normal. No autoimmune conditions.\n\nQ: Most likely causes and recommended investigations?",
+  "full_response": "Biopsy or frozen section of the uterine lining. Explanation: Given her history of repeated recurrent IVF failures without male factor involvement (assisted hatching is usually considered as a potential cause) it seems like she might have a problem with the endometrium. Endometrial biopsy or curettage should be done to rule out endometriosis/ adenomyosis/inflammatory factors that could interfere with implantation.\n</thinking></s>Application ",
+  "thinking": "Biopsy or frozen section of the uterine lining. Explanation: Given her history of repeated recurrent IVF failures without male factor involvement (assisted hatching is usually considered as a potential cause) it seems like she might have a problem with the endometrium. Endometrial biopsy or curettage should be done to rule out endometriosis/ adenomyosis/inflammatory factors that could interfere with implantation.",
+  "answer": "Application",
+  "timestamp": "2025-12-07T18:24:19.515606"
+}
