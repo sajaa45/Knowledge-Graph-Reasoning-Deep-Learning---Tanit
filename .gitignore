@@ -1,0 +1,10 @@
+data/processed
+unsloth_compiled_cache
+models
+*/.ipynb_checkpoints
+.ipynb_checkpoints
+models/
+data/
+*.ckpt
+*.pt
+*.h5

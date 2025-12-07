@@ -1,0 +1,17 @@
+{
+  "model_path": "models/sft_smollm3/",
+  "timestamp": "2025-12-07T11:36:52.005398",
+  "completed_benchmarks": [
+    "medqa",
+    "medmcqa",
+    "pubmedqa",
+    "mmlu_clinical"
+  ],
+  "failed_benchmarks": [],
+  "results": {
+    "medqa": null,
+    "medmcqa": null,
+    "pubmedqa": null,
+    "mmlu_clinical": null
+  }
+}

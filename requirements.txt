@@ -1,0 +1,14 @@
+pyyaml
+datasets
+tqdm
+transformers
+accelerate
+bitsandbytes
+bitsandbytes
+accelerate
+xformers==0.0.29.post3
+peft
+trl
+triton
+cut_cross_entropy
+unsloth_zoo
